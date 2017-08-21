@@ -1,1 +1,1 @@
-# wswp-super-sprinter-3000
+# Super Sprinter 3000
