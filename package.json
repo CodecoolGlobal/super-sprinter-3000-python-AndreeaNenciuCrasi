@@ -1,0 +1,17 @@
+{
+  "name": "wswp-super-sprinter-3000",
+  "version": "1.0.0",
+  "description": "An Agile development helper software.",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha --timeout 10000 test/runner.js test/*/**.js"
+  },
+  "author": "",
+  "dependencies": {
+    "puppeteer": "^0.13.0",
+    "chai": "^4.1.2",
+    "mocha": "^4.0.1"
+  }
+}
