@@ -10,6 +10,7 @@ sudo apt-get update
 sudo apt-get install curl
 curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
 sudo apt-get install nodejs
+npm install
 ```
 
 Source: https://gist.github.com/isaacs/579814#file-node-and-npm-in-30-seconds-sh
