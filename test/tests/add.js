@@ -5,7 +5,7 @@ let page, response;
 
 const fillForm = (async (page) => {
     await page.$eval('#title', el => el.value = '');
-    await page.type('#title', 'Another User Story');
+    await page.type('#title', 'Another,;?-| User Story');
 
     await page.$eval('#user_story', el => el.value = '');
     await page.type('#user_story', `As a User Story,
@@ -417,7 +417,7 @@ describe('Add User Story', () => {
             it('should show the new data\'s title in the list page', test(async () => {
                 expect(
                     await page.$eval('table tr:nth-of-type(5) td:nth-of-type(2)', el => el.innerText)
-                ).to.be.equal('Another User Story')
+                ).to.be.equal('Another,;?-| User Story')
             }));
 
             it('should show the new data\'s user story in the list page', test(async () => {
