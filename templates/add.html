@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    {% block head %}
+    <meta charset="utf-8">
+<!--    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">-->
+    <title>{% block title %}{% endblock %} - Add Story</title>
+    {% endblock %}
+</head>
+
+<body>
+    <h1>Add User Story</h1><br>
+    <form action="{{ url_for('result') }}" method="post">
+        {% block content %}
+        <label>Story Title:<br>
+            <input type="text" minlength="5" required name="storytitle">
+        </label>
+        <br><br>
+        <label>User Story:<br>
+            <textarea rows="4" cols="50" required name="userstory"></textarea>
+        </label>
+        <br><br>
+        <label>Acceptance Criteria:<br>
+            <textarea rows="4" cols="50" required name="acceptancecriteria"></textarea>
+        </label>
+        <br><br>
+        <label>Business value:<br>
+            <input type="number" min="100" max="1500" name="businessvalue">
+        </label>
+        <br><br>
+        <label>Estimation:<br>
+            <input type="number" min="0.5" max="40" name="estimation">
+        </label>
+        <br><br>
+        {% endblock %}
+        <input type="submit" value="Add new User Story">
+    </form>
+
+
+</body>
+</html>
+
