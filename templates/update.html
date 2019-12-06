@@ -9,6 +9,7 @@
 
 <body>
     <h1>Edit User Story</h1><br>
+    {{ mylist }}
     <form action="{{ url_for('route_edit', id_story=3) }}" method="post">
         <label>Story Title:<br>
             <input type="text" minlength="5" required name="storytitle" value="{{ result.title }}">

@@ -29,6 +29,7 @@ def result():
    else:
         return render_template('result.html')
 
+
 @app.route('/update/<id_story>', methods = ['POST', 'GET'])
 def route_edit(id_story):
     table = data_handler.get_all_user_story(FILE)
@@ -41,13 +42,10 @@ def route_edit(id_story):
         new_result = request.form
         for value in new_result.values():
             mylist.append(value)
+        data_handler.change_user_story(FILE, mylist)
         return render_template('result.html', result=new_result)
     else:
         return render_template('update.html', result=result)
-
-
-
-
 
 
 if __name__ == '__main__':
