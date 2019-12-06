@@ -31,7 +31,7 @@
                     {% elif line.title == 'Add new User Stories' %}
                         <a href="{{ url_for('route_add') }}">{{ line.title }}</a>
                     {% elif line.title == 'Update existing User Stories' %}
-                        <a href="{{ url_for('route_edit') }}">{{ line.title }}</a>
+                        <a href="{{ url_for('route_edit', id_story=3) }}">{{ line.title }}</a>
                     {% else %}
                         {{ line.title }}
                     {% endif %}

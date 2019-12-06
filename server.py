@@ -3,11 +3,12 @@ from flask import Flask, render_template, request, redirect, url_for
 import data_handler
 
 app = Flask(__name__)
+FILE = 'data.csv'
 
 @app.route('/')
 @app.route('/list')
 def route_list():
-    user_stories = data_handler.get_all_user_story('data.csv')
+    user_stories = data_handler.get_all_user_story(FILE)
 
     return render_template('list.html', user_stories=user_stories)
 
@@ -22,18 +23,32 @@ def result():
         result = request.form
         for value in result.values():
             mylist.append(value)
-        mylist.append('-')
-        data_handler.write_user_story('data.csv', mylist)
+        mylist.append('none')
+        data_handler.write_user_story(FILE, mylist)
         return render_template("result.html",result = result)
    else:
         return render_template('result.html')
 
-@app.route('/update')
-def route_edit():
-    statuses = ['planning', 'todo', 'in progress', 'review', 'done']
-    current = 'planning'
+@app.route('/update/<id_story>', methods = ['POST', 'GET'])
+def route_edit(id_story):
+    table = data_handler.get_all_user_story(FILE)
+    mylist = []
+    result = {}
+    for line in table:
+        if line.get('id') == id_story:
+            result = line
+    if request.method == 'POST':
+        new_result = request.form
+        for value in new_result.values():
+            mylist.append(value)
+        return render_template('result.html', result=new_result)
+    else:
+        return render_template('update.html', result=result)
 
-    return render_template('update.html', statuses=statuses, selected_status=current)
+
+
+
+
 
 if __name__ == '__main__':
     app.run(

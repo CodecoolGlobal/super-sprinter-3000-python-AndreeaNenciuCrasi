@@ -3,3 +3,6 @@ id,title,user_story,acceptance_criteria,business_value,estimation,status
 2,Add new User Stories,"As a User,I want to be able to add a new User Stories,So that I can extend the list of requirements","When I open the website (/), And I click the ""Add User Story"" link. Then ensure I see a form where I can add details of the new User Story, And if I submit the form, this User Story gets saved.",800,4.5,-
 3,Update existing User Stories,"As a User,I want to be able to change details of an existing User Story,So that I can keep them up-to-date with the current info.","When I open the website (/), And I click the title of a User Story,Then ensure I see a form prefilled with the details of the User Story,
 And when I submit the changed data, ensure it gets save, And ensure it overwrites the previous details, not creating a new User Story.",800,0.5,-
+5,22,33,44,55,66,77
+6,22,33,44,55,66,77
+7,22,33,44,55,66,77
