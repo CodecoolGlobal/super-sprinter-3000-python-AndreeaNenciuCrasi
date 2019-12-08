@@ -1,0 +1,16 @@
+<!doctype html>
+<html>
+   <body>
+   <h1>Saved Story</h1>
+   {{ mylist }}
+   <p><a href="{{ url_for('route_list') }}">Back to Story List</a></p>
+      <table border = 1>
+         {% for key, value in result.items() %}
+            <tr>
+               <th> {{ key }} </th>
+               <td> {{ value }} </td>
+            </tr>
+         {% endfor %}
+      </table>
+   </body>
+</html>

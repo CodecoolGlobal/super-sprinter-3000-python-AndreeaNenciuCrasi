@@ -18,12 +18,13 @@ def route_add():
 
 @app.route('/result',methods = ['POST', 'GET'])
 def result():
+   global FILE
    mylist = []
    if request.method == 'POST':
         result = request.form
         for value in result.values():
             mylist.append(value)
-        mylist.append('none')
+        mylist.append('-')
         data_handler.write_user_story(FILE, mylist)
         return render_template("result.html",result = result)
    else:
@@ -33,19 +34,24 @@ def result():
 @app.route('/update/<id_story>', methods = ['POST', 'GET'])
 def route_edit(id_story):
     table = data_handler.get_all_user_story(FILE)
-    mylist = []
     result = {}
-    for line in table:
-        if line.get('id') == id_story:
-            result = line
+    if request.method == 'GET':
+        for line in table:
+            if line['id'] == id_story:
+                result = line
+        return render_template('update.html', result = result)
+
+@app.route('/result_edit', methods=['POST', 'GET'])
+def route_edit_result():
+    mylist = []
     if request.method == 'POST':
-        new_result = request.form
-        for value in new_result.values():
-            mylist.append(value)
-        data_handler.change_user_story(FILE, mylist)
-        return render_template('result.html', result=new_result)
+       new_result = request.form
+       for value in new_result.values():
+           mylist.append(value)
+       data_handler.change_user_story(FILE, mylist)
+       return render_template('result_edit.html', result=new_result, mylist = mylist)
     else:
-        return render_template('update.html', result=result)
+        return render_template('result_edit.html')
 
 
 if __name__ == '__main__':
