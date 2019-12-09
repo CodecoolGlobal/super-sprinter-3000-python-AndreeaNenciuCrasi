@@ -1,8 +1,12 @@
 <!doctype html>
 <html>
+   <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_add.css') }}">
+    <title>Updated Story</title>
+</head>
    <body>
    <h1>Saved Story</h1>
-   {{ mylist }}
    <p><a href="{{ url_for('route_list') }}">Back to Story List</a></p>
       <table border = 1>
          {% for key, value in result.items() %}

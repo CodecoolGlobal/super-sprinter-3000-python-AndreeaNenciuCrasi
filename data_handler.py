@@ -26,9 +26,8 @@ def write_user_story(filename, mylist):
     with open(filename, 'a', newline='') as csvfile:
         fieldnames = DATA_HEADER
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-
-        writer.writerow({DATA_HEADER[0]: mylist[0], DATA_HEADER[1]: mylist[1], DATA_HEADER[2]: mylist[2], DATA_HEADER[3]: mylist[3],
-                         DATA_HEADER[4]: mylist[4], DATA_HEADER[5]: mylist[5], DATA_HEADER[6]: mylist[6]})
+        to_write = dict(zip(DATA_HEADER, mylist))
+        writer.writerow(to_write)
 
 def change_user_story(filename, mylist):
     dict_list = get_all_user_story(filename)
@@ -50,10 +49,5 @@ def change_user_story(filename, mylist):
                          'business_value': dict['business_value'], 'estimation': dict['estimation'], 'status': dict['status']})
 
 
-# x = ['22', '33', '44', '55', '66', '77']
-# write_user_story('data.csv', x)
-# print(get_all_user_story('data.csv'))
-# print('\n')
-# mylist = ['2', 'TREI', 'TREI', 'TREI', '33', '77', '88']
-# change_user_story('data.csv', mylist)
+
 

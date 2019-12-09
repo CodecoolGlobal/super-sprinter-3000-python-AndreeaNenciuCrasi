@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-<!--    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_add.css') }}">
     <title>Add Story</title>
 </head>
 
@@ -14,7 +14,7 @@
             <input type="text" minlength="5" required name="storytitle">
         </label>
         <br><br>
-        <label>User Story:<br>
+        <label id="userstory">User Story:<br>
             <textarea rows="4" cols="50" required name="userstory"></textarea>
         </label>
         <br><br>

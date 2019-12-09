@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <title>Super Sprinter 3000</title>
-<!--        <link rel="stylesheet" href="{{ url_for('static', filename='main.css')}}">-->
+        <link rel="stylesheet" href="{{ url_for('static', filename='style_list.css')}}">
     </head>
     <body>
         <h1>Super Sprinter 3000</h1>
@@ -11,9 +11,9 @@
 
         <table>
 
-        <thead>
+        <thead id ="thead">
             <tr><th>Id</th>
-                <th>Story Title</th>
+                <th id ="theadid">Story Title</th>
                 <th>User Story</th>
                 <th>Acceptance Criteria</th>
                 <th>Business value</th>
@@ -26,15 +26,9 @@
             <tr>
                 <td>{{ line.id }}</td>
                 <td id="linetitle">
-                    {% if line.title == 'List all User Stories' %}
-                        <a href="{{ url_for('route_list') }}">{{ line.title }}</a>
-                    {% elif line.title == 'Add new User Stories' %}
-                        <a href="{{ url_for('route_add') }}">{{ line.title }}</a>
-                    {% elif line.title == 'Update existing User Stories' %}
-                        <a href="{{ url_for('route_edit', id_story=3) }}">{{ line.title }}</a>
-                    {% else %}
-                        {{ line.title }}
-                    {% endif %}
+
+                        <a href="{{ url_for('route_edit', id_story=line.id) }}">{{ line.title }}</a>
+
                 </td>
                 <td>{{ line.user_story }}</td>
                 <td>{{ line.acceptance_criteria }}</td>
@@ -44,6 +38,5 @@
             </tr>
             {% endfor %}
         </tbody>
-    <p><a href="{{ url_for('route_edit', id_story=3) }}">Update User Story</a></p>
     </body>
 </html>

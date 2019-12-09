@@ -1,4 +1,7 @@
 id,title,user_story,acceptance_criteria,business_value,estimation,status
-1,List all User Stories,"As a User,I want to see all the previously saved User Stories,So that I get an overview of all requirements","Given that there are any number ({0..n}) of saved User Stories,When I open the website (/),Then ensure I see a table with all the stored data",1000,2.5,-
+1,List all User Stories,"As a User,I want to see all the previously saved User Stories,So that I get an overview of all requirements","Given that there are any number ({0..n}) of saved User Stories,When I open the website (/),Then ensure I see a table with all the stored data",1000,2.5,review
 2,Add new User Stories,"As a User,I want to be able to add a new User Stories,So that I can extend the list of requirements","When I open the website (/),And I click the ""Add User Story"" link Then ensure I see a form where I can add details of the new User Story, And if I submit the form, this User Story gets saved.",1000,2.5,planning
 3,Update existing User Stories,"As a User,I want to be able to change details of an existing User Story,So that I can keep them up-to-date with the current info.","When I open the website (/),And I click the title of a User Story,Then ensure I see a form prefilled with the details of the User Story,And when I submit the changed data, ensure it gets save,And ensure it overwrites the previous details, not creating a new User Story.",1000,2.5,in progress
+4,teste,test,test,100,0.5,in progress
+5,asssss,deeeeee,reeeee,100,3.5,review
+6,wwwwwww,qert,asdet,102,1.5,done
