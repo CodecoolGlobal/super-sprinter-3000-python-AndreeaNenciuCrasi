@@ -6,12 +6,6 @@ DATA_HEADER = ['id', 'title', 'user_story', 'acceptance_criteria', 'business_val
 STATUSES = ['planning', 'todo', 'in progress', 'review', 'done']
 
 
-def count_rows_in_file(file_name):
-    file = open(file_name, "r")
-    count = len(file.readlines())
-    file.close()
-    return count
-
 def get_all_user_story(filename):
     dict_list = []
     with open(filename) as csvfile:
@@ -21,8 +15,8 @@ def get_all_user_story(filename):
     return dict_list
 
 def write_user_story(filename, mylist):
-    count = count_rows_in_file(filename)
-    mylist.insert(0, count)
+    count = len(get_all_user_story(filename))
+    mylist.insert(0, count + 1)
     with open(filename, 'a', newline='') as csvfile:
         fieldnames = DATA_HEADER
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
